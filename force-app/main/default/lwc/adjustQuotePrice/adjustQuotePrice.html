@@ -1,7 +1,17 @@
 <!-- Adjust Quote Price -->
 <template>
-  <lightning-input-field
-    field-name={adjustedAmountLabel}
-    value={adjustedAmount}
-  ></lightning-input-field>
+  <lightning-modal-header label="Adjust quote price"></lightning-modal-header>
+      <lightning-modal-body> <!--lightning standard component to show modal on top the window-->
+        <!--Since lightning input field has been used so i have used record edit form here-->
+        <lightning-record-edit-form record-id={content} object-api-name="Quote__c">
+        <lightning-input-field
+        field-name={adjustedAmountLabel}
+        ></lightning-input-field>
+
+      </lightning-record-edit-form>
+      </lightning-modal-body>
+      <lightning-modal-footer>
+        <lightning-button variant="base" label="Cancel"  onclick={handleClose}></lightning-button>
+        <lightning-button variant="brand" label="Save"  onclick={saveRecord} class="slds-m-left_x-small"></lightning-button>
+      </lightning-modal-footer>
 </template>
